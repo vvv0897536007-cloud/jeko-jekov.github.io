@@ -12,7 +12,6 @@
         .card:hover { transform: scale(1.05); }
         .card:active { transform: scale(0.95); }
         .icon { font-size: 35px; margin-bottom: 10px; }
-        
         #card-food { border-bottom-color: #4caf50; }
         #card-bank { border-bottom-color: #2196f3; }
         #card-vignette { border-bottom-color: #ff9800; }
@@ -26,40 +25,32 @@
     <header>🏛️ Всичко в едно - България</header>
 
     <div class="grid">
-        <div class="card" id="card-food">
-            <span class="icon">🍏</span>Храни & Аптеки
-        </div>
-        <div class="card" id="card-bank">
-            <span class="icon">🏦</span>Банки & EasyPay
-        </div>
-        <div class="card" id="card-vignette">
-            <span class="icon">🚗</span>Винетки & Каско
-        </div>
-        <div class="card" id="card-horoscope">
-            <span class="icon">🔮</span>Хороскоп & Кафе
-        </div>
-        <div class="card" id="card-laws">
-            <span class="icon">⚖️</span>Всички Закони
-        </div>
-        <div class="card" id="card-garden">
-            <span class="icon">🌱</span>Лозя & Градина
-        </div>
+        <div class="card" id="card-food"><span class="icon">🍏</span>Храни & Аптеки</div>
+        <div class="card" id="card-bank"><span class="icon">🏦</span>Банки & EasyPay</div>
+        <div class="card" id="card-vignette"><span class="icon">🚗</span>Винетки & Каско</div>
+        <div class="card" id="card-horoscope"><span class="icon">🔮</span>Хороскоп & Кафе</div>
+        <div class="card" id="card-laws"><span class="icon">⚖️</span>Всички Закони</div>
+        <div class="card" id="card-garden"><span class="icon">🌱</span>Лозя & Градина</div>
     </div>
 
     <script>
-        const contentData = {
-            'card-food': '🍏 Храни & Аптеки:\nМагазин А: Хляб 1.90 лв.\nМагазин Б: Хляб 2.10 лв.',
-            'card-bank': '🏦 Дежурни в Събота:\n• УниКредит Булбанк (ул. Македония) - до 14:00 ч.\n• Банка ДСК (ул. Свобода) - до 15:00 ч.\n• EasyPay - до 19:00 ч.',
-            'card-vignette': '🚗 Винетки & Застраховки:\nПровери Гражданска отговорност или купи Е-Винетка!',
-            'card-horoscope': '🔮 Хороскоп & Кафе:\nВашето виртуално кафе се обръща... Очаква ви прекрасен уикенд!',
-            'card-laws': '⚖️ Всички Закони:\n• Конституция\n• Закон за движение по пътищата (ЗДвП)\n• Кодекс на труда',
-            'card-garden': '🌱 Лозя & Градина:\nНаръчник за резитба на лозя, пръскане и защита на реколтата.'
+        // Тук са линковете, които ще се отварят при натискане на всяка картичка:
+        const cardLinks = {
+            'card-food': 'https://www.google.com',       // Линка за Храни & Аптеки
+            'card-bank': 'https://www.google.com',       // Линка за Банки & EasyPay
+            'card-vignette': 'https://www.google.com',   // Линка за Винетки & Каско
+            'card-horoscope': 'https://www.google.com',  // Линка за Хороскоп & Кафе
+            'card-laws': 'https://www.google.com',       // Линка за Всички Закони
+            'card-garden': 'https://www.google.com'      // Линка за Лозя & Градина
         };
 
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('click', () => {
                 const cardId = card.id;
-                alert(contentData[cardId]);
+                const targetLink = cardLinks[cardId];
+                if (targetLink) {
+                    window.location.href = targetLink; // Директно пренасочва към сайта
+                }
             });
         });
     </script>
